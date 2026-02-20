@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda de Contatos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-container input, .form-container button {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+        .contact-list {
+            margin: 20px;
+        }
+        .contact-list table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        .contact-list th, .contact-list td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .contact-list th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .contact-list td button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-list td button.edit {
+            background-color: #ff9800;
+            color: white;
+        }
+        .contact-list td button.delete {
+            background-color: #f44336;
+            color: white;
+        }
+        .contact-list td button:hover {
+            opacity: 0.8;
+        }
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .search-container input {
+            width: 50%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Agenda de Contatos</h1>
+
+    <div class="search-container">
+        <label for="search">Filtrar contatos: </label>
+        <input type="text" id="search" placeholder="Buscar por nome..." oninput="filterContacts()">
+    </div>
+
+    <div class="form-container">
+        <h3>Cadastrar Novo Contato</h3>
+        <input type="text" id="name" placeholder="Nome" required>
+        <input type="email" id="email" placeholder="E-mail" required>
+        <input type="tel" id="phone" placeholder="Telefone" required>
+        <button onclick="addContact()">Cadastrar</button>
+    </div>
+
+    <div class="contact-list">
+        <h3>Contatos Cadastrados (<span id="contact-count">0</span>)</h3>
+        <table id="contacts">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Telefone</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
